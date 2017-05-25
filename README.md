@@ -22,7 +22,7 @@ This sample makes use of the following NuGet Packages
 [MapSuite 10.0.0](https://www.nuget.org/packages?q=ThinkGeo)
 
 ### About the Code
-...csharp
+```csharp
 map.MapUnit = GeographyUnit.Meter;
 WorldStreetsAndImageryOverlay worldOverlay = new WorldStreetsAndImageryOverlay();
 worldOverlay.IsVisible = false;
@@ -42,7 +42,7 @@ map.Overlays.Add("Bing Maps", bingMapOverlay);
 OpenStreetMapOverlay osmOverlay = new OpenStreetMapOverlay();
 osmOverlay.IsVisible = false;
 map.Overlays.Add("Open Street Map", osmOverlay);
-...
+```
 
 ### Getting Help
 

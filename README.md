@@ -1,4 +1,4 @@
-# Overlays Sample for Wpf
+ # Overlays Sample for Wpf
 
 
 
@@ -10,7 +10,7 @@ The sample can show the following four basemaps:
   3. World Kit Maps
   4. Open street Maps
 
-It can display different styles of maps by setting the map type.
+It can display different styles of maps by setting the map type. Note: you do need to have Bing Maps API key and Google Maps API key to be able to use these two basemaps. 
 
 Please refer to [Wiki](http://wiki.thinkgeo.com/wiki/map_suite_desktop_for_wpf) for the details.
 

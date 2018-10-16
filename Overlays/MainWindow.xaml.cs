@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using ThinkGeo.MapSuite;
+using ThinkGeo.MapSuite.Layers;
 using ThinkGeo.MapSuite.Shapes;
 using ThinkGeo.MapSuite.Wpf;
 
@@ -29,7 +30,7 @@ namespace Overlays
 
             baseMaps.Add("Google Maps", new List<string>() { "RoadMap", "Mobile", "Satellite", "Terrain", "Hybrid" });
             baseMaps.Add("Bing Maps", new List<string>() { "Road", "AerialWithLabels", "Aerial" });
-            baseMaps.Add("World Kit Map", new List<string>() { "Road", "AerialWithLabels", "Aerial" });
+            baseMaps.Add("ThinkGeo Maps", new List<string>() { "Light", "Dark", "Aerial", "Hybrid" });
             baseMaps.Add("Open Street Map", new List<string>() { "" });
         }
 
@@ -55,9 +56,12 @@ namespace Overlays
             get { return selectedMapType; }
             set
             {
-                selectedMapType = value;
-                OnPropertyChanged("SelectedMapType");
-                RefreshMap();
+                if (value != null)
+                {
+                    selectedMapType = value;
+                    OnPropertyChanged("SelectedMapType");
+                    RefreshMap();
+                }
             }
         }
 
@@ -72,11 +76,9 @@ namespace Overlays
         private void InitializeMap()
         {
             map.MapUnit = GeographyUnit.Meter;
-            WorldStreetsAndImageryOverlay worldOverlay = new WorldStreetsAndImageryOverlay();
-            worldOverlay.IsVisible = false;
-            worldOverlay.Projection = WorldStreetsAndImageryProjection.SphericalMercator;
-            worldOverlay.MapType = WorldStreetsAndImageryMapType.Road;
-            map.Overlays.Add("World Kit Map", worldOverlay);
+            ThinkGeoMapsOverlay thinkGeoMapsOverlay = new ThinkGeoMapsOverlay();
+            thinkGeoMapsOverlay.MapType = ThinkGeoMapsType.Light;
+            map.Overlays.Add("ThinkGeo Maps", thinkGeoMapsOverlay);
 
             GoogleMapsOverlay googleMapOverlay = new GoogleMapsOverlay();
             googleMapOverlay.IsVisible = false;
@@ -99,12 +101,14 @@ namespace Overlays
 
             var selectedOverlay = map.Overlays[SelectedBaseMap];
             selectedOverlay.IsVisible = true;
+            map.ZoomLevelSet = new SphericalMercatorZoomLevelSet();
 
             switch (SelectedBaseMap)
             {
-                case "World Kit Map":
-                    var worldOverlay = selectedOverlay as WorldStreetsAndImageryOverlay;
-                    worldOverlay.MapType = (WorldStreetsAndImageryMapType)Enum.Parse(typeof(WorldStreetsAndImageryMapType), selectedMapType);
+                case "ThinkGeo Maps":
+                    var worldOverlay = selectedOverlay as ThinkGeoMapsOverlay;
+                    worldOverlay.MapType = (ThinkGeoMapsType)Enum.Parse(typeof(ThinkGeoMapsType), selectedMapType);
+                    map.ZoomLevelSet = ThinkGeoMapsOverlay.GetZoomLevelSet();
                     break;
                 case "Google Maps":
                     var googleMapsOverlay = selectedOverlay as GoogleMapsOverlay;

@@ -26,6 +26,7 @@ This sample makes use of the following NuGet Packages
 map.MapUnit = GeographyUnit.Meter;
 ThinkGeoMapsOverlay thinkGeoMapsOverlay = new ThinkGeoMapsOverlay();
 thinkGeoMapsOverlay.MapType = ThinkGeoMapsType.Light;
+thinkGeoMapsOverlay.WrappingMode = WrappingMode.WrapDateline;
 map.Overlays.Add("ThinkGeo Maps", thinkGeoMapsOverlay);
 
 GoogleMapsOverlay googleMapOverlay = new GoogleMapsOverlay();

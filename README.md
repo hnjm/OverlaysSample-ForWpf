@@ -7,7 +7,7 @@ Discover how to use Overlays to build up your map, or to add existing basemaps t
 The sample can show the following four basemaps:
   1. Google Maps
   2. Bing Maps
-  3. ThinkGeo Maps
+  3. ThinkGeo Cloud Maps
   4. Open street Maps
 
 It can display different styles of maps by setting the map type. Note: you do need to have Bing Maps API key and Google Maps API key to be able to use these two basemaps. 
@@ -24,10 +24,10 @@ This sample makes use of the following NuGet Packages
 ### About the Code
 ```csharp
 map.MapUnit = GeographyUnit.Meter;
-ThinkGeoMapsOverlay thinkGeoMapsOverlay = new ThinkGeoMapsOverlay();
-thinkGeoMapsOverlay.MapType = ThinkGeoMapsType.Light;
-thinkGeoMapsOverlay.WrappingMode = WrappingMode.WrapDateline;
-map.Overlays.Add("ThinkGeo Maps", thinkGeoMapsOverlay);
+ThinkGeoCloudMapsOverlay thinkGeoCloudMapsOverlay = new ThinkGeoCloudMapsOverlay();
+thinkGeoCloudMapsOverlay.MapType = ThinkGeoCloudMapsType.Light;
+thinkGeoCloudMapsOverlay.WrappingMode = WrappingMode.WrapDateline;
+map.Overlays.Add("ThinkGeo Cloud Maps", thinkGeoMapsOverlay);
 
 GoogleMapsOverlay googleMapOverlay = new GoogleMapsOverlay();
 googleMapOverlay.IsVisible = false;
@@ -57,7 +57,7 @@ This example makes use of the following APIs:
 - [ThinkGeo.MapSuite.Wpf.GoogleMapsOverlay](http://wiki.thinkgeo.com/wiki/api/ThinkGeo.MapSuite.Wpf.GoogleMapsOverlay)
 - [ThinkGeo.MapSuite.Wpf.BingMapsOverlay](http://wiki.thinkgeo.com/wiki/api/ThinkGeo.MapSuite.Wpf.BingMapsOverlay)
 - [ThinkGeo.MapSuite.Wpf.OpenStreetMapOverlay](http://wiki.thinkgeo.com/wiki/api/ThinkGeo.Wpf.WinForms.OpenStreetMapOverlay)
-- [ThinkGeo.MapSuite.Wpf.ThinkGeoMapsOverlay](http://wiki.thinkgeo.com/wiki/api/ThinkGeo.MapSuite.Wpf.ThinkGeoMapsOverlay)
+- [ThinkGeo.MapSuite.Wpf.ThinkGeoCloudMapsOverlay](http://wiki.thinkgeo.com/wiki/api/ThinkGeo.MapSuite.Wpf.ThinkGeoCloudMapsOverlay)
 
 ### About Map Suite
 Map Suite is a set of powerful development components and services for the .Net Framework.

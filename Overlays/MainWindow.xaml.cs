@@ -30,7 +30,7 @@ namespace Overlays
 
             baseMaps.Add("Google Maps", new List<string>() { "RoadMap", "Mobile", "Satellite", "Terrain", "Hybrid" });
             baseMaps.Add("Bing Maps", new List<string>() { "Road", "AerialWithLabels", "Aerial" });
-            baseMaps.Add("ThinkGeo Maps", new List<string>() { "Light", "Dark", "Aerial", "Hybrid" });
+            baseMaps.Add("ThinkGeo Cloud Maps", new List<string>() { "Light", "Dark", "Aerial", "Hybrid" });
             baseMaps.Add("Open Street Map", new List<string>() { "" });
         }
 
@@ -76,10 +76,10 @@ namespace Overlays
         private void InitializeMap()
         {
             map.MapUnit = GeographyUnit.Meter;
-            ThinkGeoMapsOverlay thinkGeoMapsOverlay = new ThinkGeoMapsOverlay();
-            thinkGeoMapsOverlay.MapType = ThinkGeoMapsType.Light;
-            thinkGeoMapsOverlay.WrappingMode = WrappingMode.WrapDateline;
-            map.Overlays.Add("ThinkGeo Maps", thinkGeoMapsOverlay);
+            ThinkGeoCloudMapsOverlay thinkGeoCloudMapsOverlay = new ThinkGeoCloudMapsOverlay();
+            thinkGeoCloudMapsOverlay.MapType = ThinkGeoCloudMapsType.Light;
+            thinkGeoCloudMapsOverlay.WrappingMode = WrappingMode.WrapDateline;
+            map.Overlays.Add("ThinkGeo Cloud Maps", thinkGeoCloudMapsOverlay);
 
             GoogleMapsOverlay googleMapOverlay = new GoogleMapsOverlay();
             googleMapOverlay.IsVisible = false;
@@ -106,10 +106,10 @@ namespace Overlays
 
             switch (SelectedBaseMap)
             {
-                case "ThinkGeo Maps":
-                    var worldOverlay = selectedOverlay as ThinkGeoMapsOverlay;
-                    worldOverlay.MapType = (ThinkGeoMapsType)Enum.Parse(typeof(ThinkGeoMapsType), selectedMapType);
-                    map.ZoomLevelSet = ThinkGeoMapsOverlay.GetZoomLevelSet();
+                case "ThinkGeo Cloud Maps":
+                    var worldOverlay = selectedOverlay as ThinkGeoCloudMapsOverlay;
+                    worldOverlay.MapType = (ThinkGeoCloudMapsType)Enum.Parse(typeof(ThinkGeoCloudMapsType), selectedMapType);
+                    map.ZoomLevelSet = ThinkGeoCloudMapsOverlay.GetZoomLevelSet();
                     break;
                 case "Google Maps":
                     var googleMapsOverlay = selectedOverlay as GoogleMapsOverlay;

@@ -20,9 +20,9 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Label Grid.Column="0" Grid.Row="0" Content="Base Map:" Margin="5"></Label>
-                <ComboBox Name="cboBaseMaps" Grid.Column="1" Grid.Row="0" Width="120" Margin="5" IsReadOnly="True" DisplayMemberPath="Key" SelectedValuePath="Key" SelectedValue="{Binding SelectedBaseMap}" SelectedIndex="2" ItemsSource="{Binding BaseMaps}"></ComboBox>
+                <ComboBox Name="cboBaseMaps" Grid.Column="1" Grid.Row="0" Width="150" Margin="5" IsReadOnly="True" DisplayMemberPath="Key" SelectedValuePath="Key" SelectedValue="{Binding SelectedBaseMap}" SelectedIndex="2" ItemsSource="{Binding BaseMaps}"></ComboBox>
                 <Label Grid.Column="0" Grid.Row="1" Content="Map Type:" Margin="5"></Label>
-                <ComboBox Grid.Column="1" Grid.Row="1" Width="120" Margin="5" IsReadOnly="True" SelectedValue="{Binding SelectedMapType}" ItemsSource="{Binding ElementName=cboBaseMaps, Path=SelectedItem.Value}"></ComboBox>
+                <ComboBox Grid.Column="1" Grid.Row="1" Width="150" Margin="5" IsReadOnly="True" SelectedValue="{Binding SelectedMapType}" ItemsSource="{Binding ElementName=cboBaseMaps, Path=SelectedItem.Value}"></ComboBox>
             </Grid>
         </StackPanel>
     </Grid>

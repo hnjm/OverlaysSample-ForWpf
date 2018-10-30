@@ -30,7 +30,7 @@ namespace Overlays
 
             baseMaps.Add("Google Maps", new List<string>() { "RoadMap", "Mobile", "Satellite", "Terrain", "Hybrid" });
             baseMaps.Add("Bing Maps", new List<string>() { "Road", "AerialWithLabels", "Aerial" });
-            baseMaps.Add("ThinkGeo Cloud Maps", new List<string>() { "Light", "Dark", "Aerial", "Hybrid" });
+            baseMaps.Add("ThinkGeo Cloud Maps", new List<string>() { "Light", "Dark", "Aerial", "Hybrid", "TransparentBackground" });
             baseMaps.Add("Open Street Map", new List<string>() { "" });
         }
 
@@ -77,7 +77,7 @@ namespace Overlays
         {
             map.MapUnit = GeographyUnit.Meter;
             ThinkGeoCloudMapsOverlay thinkGeoCloudMapsOverlay = new ThinkGeoCloudMapsOverlay();
-            thinkGeoCloudMapsOverlay.MapType = ThinkGeoCloudMapsType.Light;
+            thinkGeoCloudMapsOverlay.MapType = ThinkGeoCloudMapsMapType.Light;
             thinkGeoCloudMapsOverlay.WrappingMode = WrappingMode.WrapDateline;
             map.Overlays.Add("ThinkGeo Cloud Maps", thinkGeoCloudMapsOverlay);
 
@@ -108,7 +108,7 @@ namespace Overlays
             {
                 case "ThinkGeo Cloud Maps":
                     var worldOverlay = selectedOverlay as ThinkGeoCloudMapsOverlay;
-                    worldOverlay.MapType = (ThinkGeoCloudMapsType)Enum.Parse(typeof(ThinkGeoCloudMapsType), selectedMapType);
+                    worldOverlay.MapType = (ThinkGeoCloudMapsMapType)Enum.Parse(typeof(ThinkGeoCloudMapsMapType), selectedMapType);
                     map.ZoomLevelSet = ThinkGeoCloudMapsOverlay.GetZoomLevelSet();
                     break;
                 case "Google Maps":

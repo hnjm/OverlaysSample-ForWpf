@@ -73,8 +73,14 @@ namespace Overlays
         private void InitializeMap()
         {
             map.MapUnit = GeographyUnit.Meter;
-            ThinkGeoCloudMapsOverlay thinkGeoCloudMapsOverlay = new ThinkGeoCloudMapsOverlay();
-            thinkGeoCloudMapsOverlay.MapType = ThinkGeoCloudMapsMapType.Light;
+
+            /*===========================================
+               Backgrounds for this sample are powered by ThinkGeo Cloud Maps and require
+               a Client ID and Secret. These were sent to you via email when you signed up
+               with ThinkGeo, or you can register now at https://cloud.thinkgeo.com.
+            ===========================================*/
+            ThinkGeoCloudRasterMapsOverlay thinkGeoCloudMapsOverlay = new ThinkGeoCloudRasterMapsOverlay();
+            thinkGeoCloudMapsOverlay.MapType = ThinkGeoCloudRasterMapsMapType.Light;
             thinkGeoCloudMapsOverlay.WrappingMode = WrappingMode.WrapDateline;
             map.Overlays.Add("ThinkGeo Cloud Maps", thinkGeoCloudMapsOverlay);
 
@@ -104,9 +110,9 @@ namespace Overlays
             switch (SelectedBaseMap)
             {
                 case "ThinkGeo Cloud Maps":
-                    var worldOverlay = selectedOverlay as ThinkGeoCloudMapsOverlay;
-                    worldOverlay.MapType = (ThinkGeoCloudMapsMapType)Enum.Parse(typeof(ThinkGeoCloudMapsMapType), selectedMapType);
-                    map.ZoomLevelSet = ThinkGeoCloudMapsOverlay.GetZoomLevelSet();
+                    var worldOverlay = selectedOverlay as ThinkGeoCloudRasterMapsOverlay;
+                    worldOverlay.MapType = (ThinkGeoCloudRasterMapsMapType)Enum.Parse(typeof(ThinkGeoCloudRasterMapsMapType), selectedMapType);
+                    map.ZoomLevelSet = new ThinkGeoCloudMapsZoomLevelSet();
                     break;
                 case "Google Maps":
                     var googleMapsOverlay = selectedOverlay as GoogleMapsOverlay;

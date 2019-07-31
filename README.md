@@ -65,6 +65,10 @@ This example makes use of the following APIs:
 - [ThinkGeo.MapSuite.Wpf.OpenStreetMapOverlay](http://wiki.thinkgeo.com/wiki/api/ThinkGeo.Wpf.WinForms.OpenStreetMapOverlay)
 - [ThinkGeo.MapSuite.Wpf.ThinkGeoCloudMapsOverlay](http://wiki.thinkgeo.com/wiki/api/ThinkGeo.MapSuite.Wpf.ThinkGeoCloudMapsOverlay)
 
+### FAQ
+- __Q: How do I make background map work?__  
+A: Backgrounds for this sample are powered by ThinkGeo Cloud Maps and require a Client ID and Secret. These were sent to you via email when you signed up with ThinkGeo, or you can register now at https://cloud.thinkgeo.com. Once you get them, please update the code in method InitializeMap().  
+
 ### About Map Suite
 Map Suite is a set of powerful development components and services for the .Net Framework.
 
